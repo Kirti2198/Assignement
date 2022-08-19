@@ -1,9 +1,12 @@
+import cors from 'cors';
 import express, { Application } from 'express';
+import usersRoutes from './modules/users/users.router';
 class App {
   private application: Application;
 
   constructor() {
     this.application = express();
+    this.setupCors();
     this.setupGlobalMiddleware();
     this.setupRouters();
   }
@@ -18,6 +21,17 @@ class App {
   getApplication() {
     return this.application;
   }
+  private setupCors() {
+    this.application.use(
+      cors({
+        origin: [
+          'http://localhost:4000',
+          'http://localhost:8080',
+          'http://localhost:4200',
+        ],
+      }),
+    );
+  }
 
   private setupGlobalMiddleware() {
     this.application.use(express.json());
@@ -29,6 +43,7 @@ class App {
     });
 
     // Setup our router later
+    this.application.use('/users', usersRoutes);
   }
 }
 
