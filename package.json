@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "npm build | nodemon ./dist/server.js",
+    "start": "npm run-script build | nodemon ./dist/server.js",
     "build": "tsc",
     "test": "jest",
     "lint": "eslint ./src --ext .ts",
