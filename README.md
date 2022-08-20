@@ -1,4 +1,4 @@
-# Assignement
+# Assignment
 Implement search,sort and pagination using mongoose and node with typescript. 
 
 for start the app--> clone and use npm install and npm start 
